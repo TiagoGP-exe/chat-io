@@ -1,5 +1,7 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import { Outfit } from "next/font/google";
+import { cn } from "@/lib/utils";
 
 const outfir = Outfit({ subsets: ["latin"] });
 
@@ -14,8 +16,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={outfir.className}>{children}</body>
-    </html>
+    <ClerkProvider
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+    >
+      <html
+        lang="en"
+        className={cn("bg-slate-100 text-slate-800", outfir.className)}
+      >
+        <body>{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }
