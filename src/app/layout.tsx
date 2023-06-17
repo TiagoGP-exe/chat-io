@@ -9,6 +9,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@/components/analytics";
 import { siteConfig } from "@/config/site";
 
+interface RootLayoutProps {
+  children: React.ReactNode
+}
+
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -68,11 +72,9 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
