@@ -18,6 +18,9 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        'xl': '1120px',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

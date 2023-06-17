@@ -16,7 +16,7 @@ export default function Home() {
         width={432} 
         height={115}
         alt='logomark'
-        className=' max-w-[90%] w-auto h-auto'
+        className='w-48 max-w-[90%] sm:w-auto h-auto'
       />
       </div>
       </div>
@@ -28,7 +28,7 @@ export default function Home() {
         width={1280} 
         height={832}
         alt='banner'
-        className='aspect-auto '
+        className='w-[50rem] '
       />
      
       </div>
@@ -37,7 +37,7 @@ export default function Home() {
         width={1280} 
         height={832}
         alt='banner'
-       className='w-[100vw]  absolute top-[4  0vh] left-0 -z-10 bg-gradient-to-b '
+       className='w-[100vw]  absolute top-[40vh] left-0 -z-10 '
       />
 
       </div>
