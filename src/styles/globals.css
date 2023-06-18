@@ -81,3 +81,14 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+::-webkit-scrollbar-track {
+  margin: 10px;
+  box-sizing: content-box;
+  border-radius: 1rem;
+}

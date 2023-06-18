@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/nextjs": "^4.18.2",
     "@prisma/client": "^4.15.0",
+    "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.4",
     "@types/node": "20.2.1",
     "@types/react": "18.2.6",
@@ -36,6 +37,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.0.2",
     "@tailwindcss/typography": "^0.5.9",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-react": "^7.32.2",
