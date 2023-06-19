@@ -51,14 +51,14 @@
     --popover: 224 71% 4%;
     --popover-foreground: 215 20.2% 65.1%;
 
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
+    --border: 0, 0%, 17%;
+    --input: 0, 0%, 17%;
 
     --card: 224 71% 4%;
     --card-foreground: 213 31% 91%;
 
     --primary: 216 86% 47%;
-    --primary-foreground: 216 86% 47%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 346 75% 42%;
     --secondary-foreground: 346 75% 42%;
@@ -84,7 +84,7 @@
 
 /* custom scrollbar */
 ::-webkit-scrollbar {
-  width: 0.2rem;
+  width: 0rem;
 }
 
 ::-webkit-scrollbar-track {

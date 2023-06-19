@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useScroll } from "framer-motion"
 
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 
 export default function Home() {
   const { scrollYProgress } = useScroll()
@@ -26,14 +26,16 @@ export default function Home() {
       </div>
       <div className="flex w-full max-w-screen-xl flex-1 flex-col items-center justify-center border-x-2 border-[#748FF026]  px-4 pt-8 md:p-12">
         <div className="mb-10 flex items-center gap-2 text-white">
-          <Link href="/channels">
-            <Button variant="default" className=" font-heading text-white">
-              Get Started
-            </Button>
+          <Link href="/channels" className={buttonVariants()}>
+            Get Started
           </Link>
-          <Button variant="outline-primary" className=" font-heading ">
+
+          <Link
+            href="/"
+            className={buttonVariants({ variant: "outline-primary" })}
+          >
             Read more
-          </Button>
+          </Link>
         </div>
 
         <div>

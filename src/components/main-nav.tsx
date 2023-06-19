@@ -1,54 +1,56 @@
 "use client"
 
 import * as React from "react"
-import Image from "next/image"
 import Link from "next/link"
-import { useSelectedLayoutSegment } from "next/navigation"
 import { MainNavItem } from "@/types"
 import { LogOut } from "lucide-react"
 
-import { Icons } from "@/components/icons"
-import { MobileNav } from "@/components/mobile-nav"
+import { abrevText, selectCorrectVariant } from "@/lib/utils"
+
+import { ItemNav } from "./item-nav"
 
 interface MainNavProps {
   items?: MainNavItem[]
   children?: React.ReactNode
+  id: string
+  test?: string
 }
 
-export function MainNav({ items, children }: MainNavProps) {
-  const segment = useSelectedLayoutSegment()
-  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
-
+export const MainNav: React.FC<MainNavProps> = ({
+  items,
+  children,
+  id,
+  test,
+}) => {
   return (
-    <div className="fixed bottom-0 top-0 flex w-20 max-w-[100vw]  flex-col  gap-3  bg-foreground pb-4">
-      <div className="flex flex-col items-center  gap-3 overflow-y-auto pt-4">
-        <div className="flex w-full items-center justify-center  border-l-4 border-slate-100 border-opacity-40 ">
-          <Link
-            href="/"
-            className=" flex h-12 w-12 items-center justify-center rounded-full  bg-white/10"
-          >
-            <Image
-              src="/images/logo.svg"
-              quality={100}
-              width={64}
-              height={64}
-              alt="logomark"
-              className="h-7 w-7 pr-1"
-            />
-          </Link>
+    <div className="flex w-20 max-w-[100vw] flex-col justify-between gap-4 bg-background pb-4">
+      <div className="flex flex-col items-center gap-4 overflow-y-auto ">
+        <div className="flex h-20 w-full border-b-2 border-slate-100/10 py-4">
+          <ItemNav
+            name="Home"
+            url="/channels"
+            variant={!id ? "activeWithBg" : "withBg"}
+            className="h-6 w-6 "
+            img="/images/logo.svg"
+          />
         </div>
-        <nav className="flex w-full flex-col items-center gap-2.5 border-t-2 border-slate-100 border-opacity-10 pt-3">
-          {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]?.map((item, index) => (
-            <Image
-              src="/images/channel-1.png"
-              quality={100}
-              width={64}
-              height={64}
-              alt="logomark"
-              className=" h-12 w-12 rounded-full bg-black"
+
+        <nav className="relative flex w-full flex-col items-center gap-2.5  ">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]?.map((item, index) => (
+            <ItemNav
+              key={index}
+              url={`/channels/${item}`}
+              variant={selectCorrectVariant(
+                id,
+                `${item}`
+                // "/images/channel-1.png"
+              )}
+              className="h-12 w-12"
+              // img="/images/channel-1.png"
+              name={abrevText(`Channel ${item}`)}
             />
           ))}
-          <div className="absolute bottom-[4.5rem] h-10 w-full bg-gradient-to-t from-foreground" />
+          <div className="pointer-events-none sticky bottom-0 h-10 w-full bg-gradient-to-t from-background" />
         </nav>
       </div>
       <div className=" flex items-center justify-center rounded-full">
