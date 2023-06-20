@@ -59,7 +59,7 @@ export default async function Home() {
         </div>
       </div>
       <div className="flex w-full items-center justify-center  border-t-2 ">
-        <div className="flex w-full max-w-screen-xl items-center justify-between border-x-2 p-8">
+        <div className="flex w-full max-w-screen-xl flex-wrap items-center justify-center gap-4 border-x-2 p-8 md:justify-between">
           <div className="flex flex-wrap items-center justify-center gap-4 ">
             <Link href="https://github.com/tiagogp-exe">
               <Image

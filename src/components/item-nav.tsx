@@ -46,19 +46,16 @@ const containItemNav = cva(
   }
 )
 
-const containItemNavImg = cva(
-  " cursor-pointer transition-all duration-200 object-cover",
-  {
-    variants: {
-      variant: {
-        default: "rounded-[5rem] group-hover:rounded-xl",
-        active: "rounded-xl",
-        withBg: "",
-        activeWithBg: "",
-      },
+const containItemNavImg = cva(" cursor-pointer transition-all duration-200", {
+  variants: {
+    variant: {
+      default: "rounded-[5rem] group-hover:rounded-xl",
+      active: "rounded-xl",
+      withBg: "",
+      activeWithBg: "",
     },
-  }
-)
+  },
+})
 
 export const ItemNav: FC<ItemNavProps> = ({
   url,
