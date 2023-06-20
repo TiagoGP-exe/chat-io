@@ -2,13 +2,10 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { motion, useScroll } from "framer-motion"
 
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 
 export default function Home() {
-  const { scrollYProgress } = useScroll()
-
   return (
     <main className="flex min-h-screen flex-col items-center ">
       <div className="flex  h-[20vh] w-full  max-w-screen-xl  border-x-2 border-[#748FF026]"></div>
