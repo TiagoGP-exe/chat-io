@@ -20,10 +20,10 @@ const containerItemNav = cva(
   {
     variants: {
       variant: {
-        default: "hover:border-l-4 border-slate-100/40",
-        active: "border-l-4 border-slate-100/40",
-        withBg: "hover:border-l-4 border-slate-100/40",
-        activeWithBg: "border-l-4 border-slate-100/40",
+        default: "hover:border-l-4 border-foreground",
+        active: "border-l-4 border-foreground",
+        withBg: "hover:border-l-4 border-foreground",
+        activeWithBg: "border-l-4 border-foreground",
       },
     },
     defaultVariants: {
@@ -37,21 +37,21 @@ const containItemNav = cva(
   {
     variants: {
       variant: {
-        default: "rounded-[4rem] group-hover:rounded-xl",
+        default: "rounded-[5rem] group-hover:rounded-xl",
         active: "rounded-xl",
-        withBg: "bg-slate-100/10 rounded-[4rem] group-hover:rounded-xl",
-        activeWithBg: "bg-primary rounded-xl",
+        withBg: "bg-foreground/10 rounded-[5rem] group-hover:rounded-xl",
+        activeWithBg: "bg-primary rounded-xl text-white",
       },
     },
   }
 )
 
 const containItemNavImg = cva(
-  " h-12 w-12 cursor-pointer transition-all duration-200",
+  " cursor-pointer transition-all duration-200 object-cover",
   {
     variants: {
       variant: {
-        default: "rounded-[4rem] group-hover:rounded-xl",
+        default: "rounded-[5rem] group-hover:rounded-xl",
         active: "rounded-xl",
         withBg: "",
         activeWithBg: "",
@@ -88,7 +88,7 @@ export const ItemNav: FC<ItemNavProps> = ({
             className={cn(containItemNavImg({ className, variant }))}
           />
         ) : (
-          <h2 className="text-white">{name}</h2>
+          <h2>{name}</h2>
         )}
       </div>
     </div>
