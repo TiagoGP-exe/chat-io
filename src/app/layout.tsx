@@ -1,13 +1,17 @@
-import { Outfit as FontSans } from "next/font/google";
-import localFont from "next/font/local";
+import { Outfit as FontSans } from "next/font/google"
+import localFont from "next/font/local"
 
-import "../styles/globals.css";
-import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/theme-provider";
-import { TailwindIndicator } from "@/components/tailwind-indicator";
-import { Toaster } from "@/components/ui/toaster";
-import { Analytics } from "@/components/analytics";
-import { siteConfig } from "@/config/site";
+import "../styles/globals.css"
+
+import { SessionProvider } from "next-auth/react"
+
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { Toaster } from "@/components/ui/toaster"
+import { Analytics } from "@/components/analytics"
+import Providers from "@/components/providers"
+import { TailwindIndicator } from "@/components/tailwind-indicator"
+import { ThemeProvider } from "@/components/theme-provider"
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -16,12 +20,12 @@ interface RootLayoutProps {
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-});
+})
 
 const fontHeading = localFont({
   src: "../assets/fonts/CalSans-SemiBold.woff2",
   variable: "--font-heading",
-});
+})
 
 export const metadata = {
   title: {
@@ -68,11 +72,9 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-};
+}
 
-export default function RootLayout({
-  children,
-}: RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -83,12 +85,12 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <Providers>{children}</Providers>
           <Analytics />
           <Toaster />
           <TailwindIndicator />
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

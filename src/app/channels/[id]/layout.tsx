@@ -1,5 +1,6 @@
 import { NavItem } from "@/types"
 
+import { getAuthSession } from "@/lib/auth"
 import { MainNav } from "@/components/main-nav"
 import { SideNav } from "@/components/side-nav"
 
@@ -17,13 +18,17 @@ const items: NavItem[] = [
   },
 ]
 
-export default function RootLayout({ children, params }: RootLayoutProps) {
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
   const { id } = params
+  const session = await getAuthSession()
 
   return (
     <main className="fixed inset-0 flex min-h-screen bg-foreground-soft">
       <MainNav items={items} id={id} />
-      <SideNav />
+      <SideNav user={session?.user as any} />
 
       {children}
     </main>

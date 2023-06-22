@@ -1,6 +1,6 @@
 "use client"
 
-import { FC } from "react"
+import React, { FC } from "react"
 import Image from "next/image"
 import { useTheme } from "next-themes"
 
@@ -26,22 +26,23 @@ const sizes = {
 
 export const Logo: FC<LogoProps> = ({ size, className }) => {
   const { theme, systemTheme } = useTheme()
+  const [actualTheme, setActualTheme] = React.useState("dark")
 
   const correctTheme =
-    theme === "system" ? systemTheme : theme === "dark" ? "dark" : "light"
+    (theme === "system" ? systemTheme : theme === "dark" ? "dark" : "light") ??
+    "dark"
 
-  return correctTheme === "dark" ? (
+  React.useEffect(() => {
+    setActualTheme(correctTheme)
+  }, [correctTheme])
+
+  return (
     <Image
-      src="/images/logomark-dark.svg"
-      alt="logo"
-      width={sizes[size || "small"].width}
-      height={sizes[size || "small"].height}
-      priority
-      className={className}
-    />
-  ) : (
-    <Image
-      src="/images/logomark-light.svg"
+      src={
+        actualTheme === "dark"
+          ? "/images/logomark-dark.svg"
+          : "/images/logomark-light.svg"
+      }
       alt="logo"
       width={sizes[size || "small"].width}
       height={sizes[size || "small"].height}

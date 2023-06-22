@@ -70,7 +70,6 @@ export const ItemNav: FC<ItemNavProps> = ({
     <div
       onClick={() => {
         push(url)
-        console.log("url", url)
       }}
       className={cn(containerItemNav({ variant }))}
     >

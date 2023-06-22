@@ -1,5 +1,3 @@
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
 
@@ -31,7 +29,7 @@ export default async function Home() {
       </div>
       <div className="flex w-full max-w-screen-xl flex-1 flex-col items-center justify-center border-x-2  py-8">
         <div className="mb-10 flex items-center gap-2 text-white">
-          <Link href="/channels" className={buttonVariants()}>
+          <Link href="/register" className={buttonVariants()}>
             Get Started
           </Link>
 
