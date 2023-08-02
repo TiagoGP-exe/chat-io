@@ -1,11 +1,9 @@
 "use client"
 
 import { useMediaQuery } from '@/hooks/use-media-query'
-import { useWindowSize } from '@/hooks/use-window-size'
 import Image from 'next/image'
 
 export const BannerHome = () => {
-  const { width } = useWindowSize()
   const matches = useMediaQuery('(min-width: 640px)')
 
 
