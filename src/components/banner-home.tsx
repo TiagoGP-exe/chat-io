@@ -6,13 +6,13 @@ import Image from 'next/image'
 
 export const BannerHome = () => {
   const { width } = useWindowSize()
-  const matches = useMediaQuery('(max-width: 640px)')
+  const matches = useMediaQuery('(min-width: 640px)')
 
 
   return (
     <div className="relative w-full ">
       {
-        matches ? (
+        !matches ? (
           <Image
             src="/images/banner-mobile.png"
             quality={100}
