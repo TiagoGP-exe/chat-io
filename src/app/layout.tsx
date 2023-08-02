@@ -3,8 +3,6 @@ import localFont from "next/font/local"
 
 import "../styles/globals.css"
 
-import { SessionProvider } from "next-auth/react"
-
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/toaster"

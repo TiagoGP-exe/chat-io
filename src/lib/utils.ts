@@ -1,11 +1,9 @@
 import { ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
-export function formatDate(input: string | number): string {
+export const formatDate = (input: string | number): string => {
   const date = new Date(input)
   return date.toLocaleDateString("en-US", {
     month: "long",
@@ -14,24 +12,22 @@ export function formatDate(input: string | number): string {
   })
 }
 
-export function absoluteUrl(path: string) {
-  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`
-}
+export const absoluteUrl = (path: string) =>
+  `${process.env.NEXT_PUBLIC_APP_URL}${path}`
 
-export function abrevText(text: string) {
-  return text
+export const abrevText = (text: string) =>
+  text
     .split(" ")
     .map((item) => item[0])
     .join("")
-}
 
 type ItemNavVariants = "default" | "active" | "withBg" | "activeWithBg"
 
-export function selectCorrectVariant(
+export const selectCorrectVariant = (
   id: string,
   index: string,
   img?: string
-): ItemNavVariants {
+): ItemNavVariants => {
   if (id === index) {
     if (img) {
       return "active"
@@ -43,4 +39,21 @@ export function selectCorrectVariant(
     }
     return "withBg"
   }
+}
+
+export const messageHandler = (io: any, socket: any) => {
+  const createdMessage = (msg: string) => {
+    socket.broadcast.emit("newIncomingMessage", msg)
+  }
+
+  socket.on("createdMessage", createdMessage)
+}
+
+export const socketInitializer = async (setMessages: (values: any) => void) => {
+  // We just call it because we don't need anything else out of it
+  // try {
+  //   await fetch("/api/socket")
+  // } catch (error) {
+  //   console.log(error)
+  // }
 }

@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 import { Logo } from "@/components/logo"
 import { ModeToggle } from "@/components/mode-toggle"
+import { BannerHome } from '@/components/banner-home'
 
 const getProfileGithub = async (): Promise<string> => {
   const res = await fetch(`https://api.github.com/users/tiagogp-exe`, {
@@ -20,14 +21,14 @@ export default async function Home() {
   const profileGithub = await getProfileGithub()
 
   return (
-    <main className="flex min-h-screen flex-col items-center ">
-      <div className="flex  h-[20vh] w-full  max-w-screen-xl  border-x-2 "></div>
-      <div className="flex w-full items-center justify-center  border-y-2 ">
-        <div className="flex w-full  max-w-screen-xl items-center justify-center border-x-2  px-2 py-8">
-          <Logo size="large" />
+    <main className="flex min-h-screen flex-col items-end xs:items-center ">
+      <div className="flex h-[10vh] w-11/12 max-w-screen-xl border-x-2 border-r-0 xs:h-[20vh] xs:w-full xs:border-r-2 "></div>
+      <div className="flex w-full items-center justify-end border-y-2  xs:justify-center ">
+        <div className="flex w-11/12 max-w-screen-xl items-center justify-center border-x-2 border-r-0 px-2 py-8 xs:w-full xs:border-r-2">
+          <Logo className='max-w-[80%] xs:max-w-none' size="large" />
         </div>
       </div>
-      <div className="flex w-full max-w-screen-xl flex-1 flex-col items-center justify-center border-x-2  py-8">
+      <div className="flex w-11/12 max-w-screen-xl flex-1 flex-col items-center justify-center border-x-2 border-r-0 py-8 xs:w-full xs:border-r-2">
         <div className="mb-10 flex items-center gap-2 text-white">
           <Link href="/register" className={buttonVariants()}>
             Get Started
@@ -41,23 +42,10 @@ export default async function Home() {
           </Link>
         </div>
 
-        <div className="relative w-full ">
-          <Image
-            priority
-            src="/images/banner.png"
-            quality={100}
-            width={1280}
-            height={832}
-            alt="banner"
-            className=" relative z-10 h-auto w-full  px-10 sm:w-auto"
-          />
-          <div className="absolute left-0 top-0 h-full  w-full blur-3xl ">
-            <div className="clip-trapezoid h-full w-full dark:bg-primary "></div>
-          </div>
-        </div>
+        <BannerHome />
       </div>
-      <div className="flex w-full items-center justify-center  border-t-2 ">
-        <div className="flex w-full max-w-screen-xl flex-wrap items-center justify-center gap-4 border-x-2 p-8 md:justify-between">
+      <div className="flex w-full items-center justify-end border-t-2 xs:justify-center ">
+        <div className="flex w-11/12 max-w-screen-xl flex-wrap items-center justify-center gap-4 border-x-2 border-r-0 p-8 xs:w-full xs:border-r-2 md:justify-between">
           <div className="flex flex-wrap items-center justify-center gap-4 ">
             <Link href="https://github.com/tiagogp-exe">
               <Image

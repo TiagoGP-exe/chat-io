@@ -1,6 +1,6 @@
 "use client"
 
-import React, { FC } from "react"
+import React, { FC, useEffect } from "react"
 import Image from "next/image"
 import { useTheme } from "next-themes"
 
@@ -32,7 +32,7 @@ export const Logo: FC<LogoProps> = ({ size, className }) => {
     (theme === "system" ? systemTheme : theme === "dark" ? "dark" : "light") ??
     "dark"
 
-  React.useEffect(() => {
+  useEffect(() => {
     setActualTheme(correctTheme)
   }, [correctTheme])
 

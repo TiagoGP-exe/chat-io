@@ -8,7 +8,6 @@ import {
 } from "@radix-ui/react-dropdown-menu"
 import { cva } from "class-variance-authority"
 
-import { Icons } from "./icons"
 import { DropdownMenuContent, DropdownMenuItem } from "./ui/dropdown-menu"
 
 const statusEnum = {
@@ -35,13 +34,13 @@ interface StatusProps {
   username: string
 }
 
-const statusIconVariants = cva("mr-2 h-4 w-4 rounded-full bg-green-600", {
+const statusIconVariants = cva("mr-2 h-3 w-3 rounded-full border-2", {
   variants: {
     variant: {
-      online: "bg-green-600",
-      idle: "bg-yellow-600",
-      dnd: "bg-red-600",
-      invisible: "bg-gray-600",
+      online: "border-green-600",
+      idle: "border-yellow-600",
+      dnd: "border-red-600",
+      invisible: "border-gray-600",
     },
   },
 })
