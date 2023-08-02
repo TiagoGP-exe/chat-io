@@ -4,7 +4,7 @@ import { useMediaQuery } from '@/hooks/use-media-query'
 import Image from 'next/image'
 
 export const BannerHome = () => {
-  const matches = useMediaQuery("(max-width: 640px)")
+  const matches = useMediaQuery("(max-width: 768px)")
 
   return (
     <div className="relative w-full ">
