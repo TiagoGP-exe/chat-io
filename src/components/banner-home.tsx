@@ -1,10 +1,12 @@
 "use client"
 
-import { useMediaQuery } from '@/hooks/use-media-query'
+import { useWindowSize } from '@/hooks/use-window-size'
 import Image from 'next/image'
 
 export const BannerHome = () => {
-  const matches = useMediaQuery("(max-width: 768px)")
+  const { width } = useWindowSize()
+
+  const matches = width <= 640 ? true : false
 
   return (
     <div className="relative w-full ">
