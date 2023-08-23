@@ -37,7 +37,7 @@ export const BannerHome = () => {
         width={1280}
         height={832}
         alt="banner desktop"
-        className="relative z-10 h-auto w-full px-10 sm:w-auto"
+        className="relative z-10 h-auto w-full pl-10 sm:w-auto"
       />
 
       <div className="absolute left-0 top-0 h-full  w-full blur-3xl ">
